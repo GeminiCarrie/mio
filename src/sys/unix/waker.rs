@@ -2,7 +2,9 @@
 mod eventfd {
     use crate::sys::Selector;
     use crate::{Interest, Token};
-
+    #[cfg(target_vendor = "teaclave")]
+    use std::untrusted::fs::File;
+    #[cfg(not(target_vendor = "teaclave"))]
     use std::fs::File;
     use std::io::{self, Read, Write};
     use std::os::unix::io::FromRawFd;

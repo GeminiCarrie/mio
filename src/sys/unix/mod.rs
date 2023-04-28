@@ -55,6 +55,7 @@ cfg_os_poll! {
     }
 
     cfg_os_ext! {
+        #[cfg(not(target_vendor = "teaclave"))]
         pub(crate) mod pipe;
     }
 }

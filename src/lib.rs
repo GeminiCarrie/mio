@@ -73,7 +73,7 @@ pub use waker::Waker;
 #[cfg_attr(docsrs, doc(cfg(all(unix, feature = "os-ext"))))]
 pub mod unix {
     //! Unix only extensions.
-
+    #[cfg(not(target_vendor = "teaclave"))]
     pub mod pipe {
         //! Unix pipe.
         //!
